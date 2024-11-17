@@ -1,0 +1,139 @@
+-- Table for LOGIN
+CREATE TABLE LOGIN (
+    Login_ID INT PRIMARY KEY,
+    Password VARCHAR(255) NOT NULL
+);
+
+-- Table for USER
+CREATE TABLE USER (
+    User_id INT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    DOB DATE,
+    Phone_no VARCHAR(15),
+    Email VARCHAR(100),
+    Login_ID INT,
+    FOREIGN KEY (Login_ID) REFERENCES LOGIN(Login_ID)
+);
+
+-- Table for PRODUCT
+CREATE TABLE PRODUCT (
+    Product_ID INT PRIMARY KEY,
+    Title VARCHAR(100),
+    Description TEXT,
+    Product_date DATE,
+    Price DECIMAL(10, 2),
+    Image BLOB
+);
+
+-- Table for the relationship between USER and PRODUCT (Shows Interest)
+CREATE TABLE Shows_Interest (
+    User_id INT,
+    Product_ID INT,
+    Date DATE,
+    PRIMARY KEY (User_id, Product_ID),
+    FOREIGN KEY (User_id) REFERENCES USER(User_id),
+    FOREIGN KEY (Product_ID) REFERENCES PRODUCT(Product_ID)
+);
+
+-- Table for the relationship between USER and PRODUCT (Lists)
+CREATE TABLE Lists (
+    User_id INT,
+    Product_ID INT,
+    Date DATE,
+    PRIMARY KEY (User_id, Product_ID),
+    FOREIGN KEY (User_id) REFERENCES USER(User_id),
+    FOREIGN KEY (Product_ID) REFERENCES PRODUCT(Product_ID)
+);
+
+-- Table for the relationship between USER and PRODUCT (Buys)
+CREATE TABLE Buys (
+    User_id INT,
+    Product_ID INT,
+    Date DATE,
+    Price DECIMAL(10, 2),
+    PRIMARY KEY (User_id, Product_ID),
+    FOREIGN KEY (User_id) REFERENCES USER(User_id),
+    FOREIGN KEY (Product_ID) REFERENCES PRODUCT(Product_ID)
+);
+
+-- Table for CUSTOMER_CARE
+CREATE TABLE CUSTOMER_CARE (
+    Emp_ID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Age INT
+);
+
+-- Table for the relationship between CUSTOMER_CARE and USER (Connects to)
+CREATE TABLE Connects_To (
+    Emp_ID INT,
+    User_id INT,
+    Date DATE,
+    PRIMARY KEY (Emp_ID, User_id),
+    FOREIGN KEY (Emp_ID) REFERENCES CUSTOMER_CARE(Emp_ID),
+    FOREIGN KEY (User_id) REFERENCES USER(User_id)
+);
+
+-- Table for ADMIN
+CREATE TABLE ADMIN (
+    Admin_ID INT PRIMARY KEY,
+    Name VARCHAR(100)
+);
+
+-- Table for the relationship between ADMIN and CUSTOMER_CARE (Has)
+CREATE TABLE Has (
+    Admin_ID INT,
+    Emp_ID INT,
+    PRIMARY KEY (Admin_ID, Emp_ID),
+    FOREIGN KEY (Admin_ID) REFERENCES ADMIN(Admin_ID),
+    FOREIGN KEY (Emp_ID) REFERENCES CUSTOMER_CARE(Emp_ID)
+);
+
+-- Table for the relationship between ADMIN and PRODUCT (Manages)
+CREATE TABLE Manages (
+    Admin_ID INT,
+    Product_ID INT,
+    PRIMARY KEY (Admin_ID, Product_ID),
+    FOREIGN KEY (Admin_ID) REFERENCES ADMIN(Admin_ID),
+    FOREIGN KEY (Product_ID) REFERENCES PRODUCT(Product_ID)
+);
+
+-- Subtype Table for Product (ISA hierarchy)
+-- Electronics Subtype
+CREATE TABLE Electronics (
+    Product_ID INT PRIMARY KEY,
+    Company VARCHAR(100),
+    Model VARCHAR(50),
+    Warranty VARCHAR(50),
+    FOREIGN KEY (Product_ID) REFERENCES PRODUCT(Product_ID)
+);
+
+-- Furniture Subtype
+CREATE TABLE Furniture (
+    Product_ID INT PRIMARY KEY,
+    Company VARCHAR(100),
+    Type VARCHAR(50),
+    FOREIGN KEY (Product_ID) REFERENCES PRODUCT(Product_ID)
+);
+
+-- Stationary Subtype
+CREATE TABLE Stationary (
+    Product_ID INT PRIMARY KEY,
+    Category VARCHAR(100),
+    FOREIGN KEY (Product_ID) REFERENCES PRODUCT(Product_ID)
+);
+
+-- Vehicles Subtype
+CREATE TABLE Vehicles (
+    Product_ID INT PRIMARY KEY,
+    Pass_No VARCHAR(50),
+    Type VARCHAR(50),
+    FOREIGN KEY (Product_ID) REFERENCES PRODUCT(Product_ID)
+);
+
+-- Others Subtype
+CREATE TABLE Others (
+    Product_ID INT PRIMARY KEY,
+    Item_Type VARCHAR(100),
+    FOREIGN KEY (Product_ID) REFERENCES PRODUCT(Product_ID)
+);

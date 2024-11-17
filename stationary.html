@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell</title>
+    <link rel="stylesheet" href="Home.css" />
+    <style>
+      body {
+        background-color: #f8f9fa; /* Light background for better readability */
+        font-family: Arial, sans-serif; /* Consistent font across the page */
+      }
+
+      nav {
+        background-color: #007bff; /* Blue background for navigation */
+        padding: 10px; /* Padding for spacing */
+      }
+
+      .navbar .buyNsell {
+        color: white; /* White text color for brand name */
+        font-size: 24px; /* Larger font size */
+        font-weight: bold; /* Bold text for emphasis */
+      }
+
+      .content .items {
+        list-style-type: none; /* Remove bullet points */
+        padding: 0; /* Remove padding */
+      }
+
+      .content .items li {
+        display: inline; /* Display items in a row */
+        margin-right: 20px; /* Space between items */
+      }
+
+      .content .items li a {
+        color: white; /* White text for links */
+        text-decoration: none; /* Remove underline from links */
+      }
+
+      .content .items li a:hover {
+        text-decoration: underline; /* Underline on hover for links */
+      }
+
+      header {
+        margin: 20px 0; /* Spacing around header */
+      }
+
+      label {
+        display: inline-block;
+        width: 200px;
+        text-align: right;
+        margin-bottom: 10px; /* Spacing below labels */
+      }
+
+      input[type="text"],
+      input[type="date"],
+      input[type="file"] {
+        width: 200px; /* Fixed width for inputs */
+        padding: 8px; /* Padding inside inputs */
+        margin-bottom: 20px; /* Spacing below inputs */
+        border: 1px solid #ccc; /* Border for inputs */
+        border-radius: 4px; /* Rounded corners */
+      }
+
+      button.btn-primary {
+        background-color: #28a745; /* Green background for submit button */
+        color: white; /* White text color */
+        padding: 10px 15px; /* Padding for button */
+        border: none; /* No border */
+        border-radius: 4px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+      }
+
+      button.btn-primary:hover {
+        background-color: #218838; /* Darker green on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="buyNsell">IITG Buy and Sell</div>
+      <div class="content">
+        <ul class="items">
+          <li class="home">
+            <a href="index.php"> Home </a>
+          </li>
+          <li class="sell">
+            <a class="nav-link" href="myProduct.php">My Product</a>
+          </li>
+          <li class="contactus">
+            <a class="nav-link" href="connect.html">Contact us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <center>
+      <header>
+        <h1>Product Details</h1>
+      </header>
+      <form method="post" action="stationary.php" enctype="multipart/form-data">
+        <label for="Product_Name">Product Name:</label>
+        <input
+          type="text"
+          id="Product_Name"
+          name="Product_Name"
+          required
+          pattern="[A-Za-z ]{1,}"
+          title="Must be alphabetic"
+        /><br />
+
+        <label for="Description">Description:</label>
+        <input
+          type="text"
+          id="Description"
+          name="Description"
+          required
+          pattern="[A-Za-z0-9\s.]{1,}"
+          title="Alphanumeric characters allowed"
+        /><br />
+
+        <label for="Purchase_Date">Date of Purchase:</label>
+        <input
+          type="date"
+          id="Purchase_Date"
+          name="Purchase_Date"
+          min="1900-01-01"
+        /><br />
+
+        <label for="Price">Price:</label>
+        <input
+          type="text"
+          id="Price"
+          name="Price"
+          required
+          pattern="^\d+(\.\d{1,2})?$"
+          title="Enter a valid price"
+        /><br />
+
+        <label for="Image">Upload Image:</label>
+        <input type="file" id="Image" name="Image" accept="image/*" /><br />
+
+        <button class="btn-primary">Submit</button>
+        <br /><br />
+      </form>
+    </center>
+  </body>
+</html>

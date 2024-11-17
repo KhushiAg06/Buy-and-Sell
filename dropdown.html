@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif; /* Modern font */
+        }
+
+        /* Body */
+        body {
+            background: #f9f9f9; /* Light background */
+            color: #333; /* Dark text color for contrast */
+            font-size: 16px;
+            line-height: 1.6; /* Increased line-height for readability */
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #ffffff, #e0e0e0); /* Light gradient */
+            padding: 1rem 2rem;
+            color: #333; /* Dark text color */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Light shadow */
+        }
+
+        .navbar .buyNsell {
+            font-size: 1.8rem; /* Increased font size for branding */
+            font-weight: bold;
+            color: #3498DB; /* Branding color */
+        }
+
+        .navbar .items {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar .items li {
+            margin-left: 2rem; /* Increased margin for better spacing */
+        }
+
+        .navbar .items li a {
+            color: #3498DB; /* Link color */
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .items li a:hover {
+            color: #ffcc00; /* Hover color */
+        }
+
+        /* Dropdown Styles */
+        .drop {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 150px;
+            align-items: center;
+        }
+
+        .dropbtn {
+            width: 300px;
+            height: 50px;
+            background-color: #ffffff; /* Light background for button */
+            color: #3498DB; /* Dark text color */
+            font-weight: bolder;
+            border: 2px solid #3498DB; /* Border color matching the button */
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+        }
+
+        .dropbtn:hover {
+            background-color: #3498DB; /* Dark background on hover */
+            color: #ffffff; /* Light text on hover */
+            border: 2px solid #ffffff; /* Light border on hover */
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff; /* Light dropdown background */
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333; /* Dark text for dropdown items */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease; /* Smooth background transition */
+        }
+
+        .dropdown-content a:hover {
+            background-color: #3498DB; /* Light blue on hover */
+            color: #ffffff; /* Light text on hover */
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+
+    <link rel="stylesheet" href="Home.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="buyNsell">
+            IITG Buy and Sell
+        </div>
+
+        <div class="content">
+            <ul class="items">
+                <li class="home">
+                    <a href="index.php"> Home </a>
+                </li>
+                <li class="contactus">
+                    <a class="nav-link" href="connect.html">Contact us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="drop">
+        <h2>Select Your Category</h2>
+
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">- - - Select Category - - - </button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="electronics.html">Electronics</a>
+                <a href="vehicle.html">Vehicle</a>
+                <a href="furniture.html">Furniture</a>
+                <a href="stationary.html">Stationary</a>
+                <a href="others.html">Others</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

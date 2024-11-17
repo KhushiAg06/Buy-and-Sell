@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell</title>
+  </head>
+
+  <link rel="stylesheet" href="Home.css" />
+  <style>
+    label {
+      display: inline-block;
+      width: 200px;
+      text-align: right;
+      font-weight: bold; /* Changed to bold for better visibility */
+    }
+
+    #dob {
+      width: 200px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="file"] {
+      width: 100%; /* Make inputs full width for better UX */
+      padding: 8px; /* Added padding for better spacing */
+      margin: 5px 0; /* Added margin for spacing */
+      border: 1px solid #ccc; /* Added border for visibility */
+      border-radius: 4px; /* Added rounded corners */
+    }
+
+    button {
+      background-color: #ff4757; /* Changed button color for visibility */
+      color: white;
+      border: none; /* Removed default border */
+      border-radius: 5px; /* Added rounded corners */
+      padding: 10px 15px; /* Added padding for button */
+      cursor: pointer; /* Added pointer cursor */
+    }
+  </style>
+  <body>
+    <nav class="navbar">
+      <div class="buyNsell">IITG Buy and Sell</div>
+
+      <div class="content">
+        <ul class="items">
+          <li class="home">
+            <a href="index.php"> Home </a>
+          </li>
+          <li class="sell">
+            <a class="nav-link" href="myProduct.php">My Product</a>
+          </li>
+          <li class="contactus">
+            <a class="nav-link" href="connect.html">Contact us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <center>
+      <header>
+        <h2>Product Details</h2>
+      </header>
+      <form method="post" action="others.php" enctype="multipart/form-data">
+        <br /><br />
+        <label for="fname">Product Name:</label>
+        <input
+          type="text"
+          id="Product_Name"
+          name="Product_Name"
+          required
+          pattern="[A-Za-z]{1,}"
+          title="Must be alphabetic"
+        /><br /><br />
+
+        <label for="lname">Description:</label>
+        <input
+          type="text"
+          class="border-2px"
+          id="Description"
+          name="Description"
+          pattern="[A-Za-z.]{1,}"
+          title="Must be alphabetic"
+        /><br /><br />
+
+        <label for="dob">Date of Purchase:</label>
+        <input
+          type="date"
+          id="Purchase_Date"
+          name="Purchase_Date"
+          min="1900-01-01"
+        /><br /><br />
+
+        <label for="Phone">Price:</label>
+        <input type="text" id="Price" name="Price" /><br /><br />
+
+        <label for="Forgot_text">Upload Image:</label>
+        <input type="file" id="Image" name="Image" /><br /><br /><br />
+
+        <button class="btn-primary btn-lg border border-dark rounded">
+          Submit
+        </button>
+        <br /><br />
+      </form>
+    </center>
+  </body>
+</html>

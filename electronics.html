@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif; /* Modern font */
+      }
+
+      /* Body */
+      body {
+        background-color: #f9f9f9; /* Light background */
+        color: #333; /* Dark text for readability */
+        font-size: 16px;
+        line-height: 1.6; /* Improved line height */
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          #ffffff,
+          #e0e0e0
+        ); /* Light gradient */
+        padding: 1rem 2rem;
+        color: #333;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for navbar */
+      }
+
+      .navbar .buyNsell {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #3498db; /* Branding color */
+      }
+
+      .navbar .items {
+        list-style: none;
+        display: flex;
+      }
+
+      .navbar .items li {
+        margin-left: 2rem;
+      }
+
+      .navbar .items li a {
+        color: #3498db; /* Link color */
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .navbar .items li a:hover {
+        color: #ffcc00; /* Hover color */
+      }
+
+      /* Form Styles */
+      header {
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+      h1 {
+        color: #3498db; /* Header color */
+      }
+
+      form {
+        background: #ffffff; /* Form background */
+        max-width: 600px; /* Limiting form width */
+        margin: 0 auto; /* Centering form */
+        padding: 2rem; /* Padding for form */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      }
+
+      label {
+        display: inline-block;
+        width: 200px;
+        text-align: right;
+        margin-bottom: 1rem; /* Margin for labels */
+        color: #555; /* Label color */
+      }
+
+      input[type="text"],
+      input[type="date"],
+      input[type="file"] {
+        width: calc(100% - 220px); /* Full width minus label width */
+        padding: 0.5rem; /* Padding for inputs */
+        margin-bottom: 1.5rem; /* Space below inputs */
+        border: 2px solid #3498db; /* Border color */
+        border-radius: 5px; /* Rounded corners */
+        transition: border-color 0.3s ease; /* Transition for focus effect */
+      }
+
+      input[type="text"]:focus,
+      input[type="date"]:focus {
+        border-color: #ffcc00; /* Change border color on focus */
+        outline: none; /* Remove default outline */
+      }
+
+      .btn-primary {
+        background-color: #3498db; /* Button color */
+        color: white; /* Button text color */
+        padding: 0.75rem 1.5rem; /* Button padding */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer on hover */
+        transition: background-color 0.3s ease; /* Transition for hover effect */
+      }
+
+      .btn-primary:hover {
+        background-color: #2980b9; /* Darker blue on hover */
+      }
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
+        .navbar .items li {
+          margin-left: 1rem; /* Less margin on small screens */
+        }
+
+        label {
+          width: auto; /* Auto width for labels on small screens */
+          text-align: left; /* Left align labels */
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="Home.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="buyNsell">IITG Buy and Sell</div>
+      <div class="content">
+        <ul class="items">
+          <li class="home">
+            <a href="index.php"> Home </a>
+          </li>
+          <li class="sell">
+            <a class="nav-link" href="myProduct.php">My Product</a>
+          </li>
+          <li class="contactus">
+            <a class="nav-link" href="connect.html">Contact us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <center>
+      <header>
+        <h1>Product Details</h1>
+      </header>
+      <form
+        method="post"
+        action="electronics.php"
+        enctype="multipart/form-data"
+      >
+        <label for="pname">Product Name:</label>
+        <input
+          type="text"
+          id="pname"
+          name="Product_Name"
+          required
+          pattern="[A-Za-z]{1,}"
+          title="Must be alphabetic"
+        /><br />
+
+        <label for="comname">Company:</label>
+        <input
+          type="text"
+          id="comname"
+          name="Company"
+          required
+          pattern="[A-Za-z]{1,}"
+          title="Must be alphabetic"
+        /><br />
+
+        <label for="Modelname">Model:</label>
+        <input type="text" id="Modelname" name="Model" required /><br />
+
+        <label for="description">Description:</label>
+        <input
+          type="text"
+          id="description"
+          name="Description"
+          title="Must be alphabetic"
+        /><br />
+
+        <label for="dob">Date of Purchase:</label>
+        <input
+          type="date"
+          id="dob"
+          name="Purchase_Date"
+          min="1900-01-01"
+        /><br />
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="Price" /><br />
+
+        <label for="image">Upload Image:</label>
+        <input type="file" id="image" name="Image" /><br /><br />
+
+        <button type="submit" class="btn-primary">Submit</button>
+        <br /><br />
+      </form>
+    </center>
+  </body>
+</html>

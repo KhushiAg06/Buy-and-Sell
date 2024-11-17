@@ -1,0 +1,121 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Modern font */
+}
+
+/* Body */
+body {
+    background: #f4f4f4; /* Light background */
+    color: #333; /* Dark text color for contrast */
+    font-size: 16px;
+    line-height: 1.6; /* Increased line-height for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #ffffff, #e0e0e0); /* Light gradient */
+    padding: 1rem 2rem;
+    color: #333; /* Dark text color */
+}
+
+.navbar .buyNsell {
+    font-size: 1.8rem; /* Increased font size for branding */
+    font-weight: bold;
+}
+
+.navbar .items {
+    list-style: none;
+    display: flex;
+}
+
+.navbar .items li {
+    margin-left: 2rem; /* Increased margin for better spacing */
+}
+
+.navbar .items li a {
+    color: #333; /* Dark link color */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .items li a:hover {
+    color: #ffcc00; /* Retained hover color */
+}
+
+/* Container */
+.container {
+    max-width: 900px; /* Slightly wider container */
+    margin: 2rem auto;
+    background: #ffffff; /* Light container */
+    padding: 2.5rem; /* Increased padding for spaciousness */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    border-radius: 10px; /* More rounded corners */
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 2rem; /* Increased margin for separation */
+}
+
+.header h1 {
+    font-size: 2.5rem; /* Increased header size */
+    color: #ffcc00; /* Contrasting color for emphasis */
+}
+
+.header p {
+    color: #555; /* Medium grey for subtext */
+    font-size: 1.2rem; /* Increased size for readability */
+}
+
+/* Contact Form */
+.contact-form label {
+    display: block;
+    margin-bottom: 0.75rem; /* Increased margin for spacing */
+    font-weight: bold;
+    color: #333; /* Dark text color */
+}
+
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem; /* Increased padding for comfort */
+    margin-bottom: 1.5rem; /* Increased margin for better spacing */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #f9f9f9; /* Light background for inputs */
+    color: #333; /* Dark text color for inputs */
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #ffcc00; /* Bright border on focus */
+    outline: none;
+}
+
+/* Button */
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2rem; /* Increased padding for the button */
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff; /* Light blue button color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for a smooth effect */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker hover color */
+    transform: scale(1.05); /* Slightly enlarges on hover */
+}

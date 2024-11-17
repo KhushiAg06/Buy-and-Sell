@@ -1,0 +1,99 @@
+-- Create User table
+CREATE TABLE User (
+    userId INT AUTO_INCREMENT PRIMARY KEY,
+    fname VARCHAR(30),
+    lname VARCHAR(30),
+    dob DATE,
+    email VARCHAR(255),
+    phone VARCHAR(20)
+);
+
+-- Create login table
+CREATE TABLE login (
+    email VARCHAR(255) PRIMARY KEY,
+    pswd VARCHAR(50),
+    Forgot_text VARCHAR(50),
+    FOREIGN KEY (email) REFERENCES User(email)
+);
+
+-- Create electronics table
+CREATE TABLE electronics (
+    Product_Id INT AUTO_INCREMENT PRIMARY KEY,
+    Product_Name VARCHAR(100),
+    Company VARCHAR(50),
+    Model VARCHAR(50),
+    email VARCHAR(255),
+    Description VARCHAR(500),
+    Purchase_Date DATE,
+    Price FLOAT,
+    Image VARCHAR(255),
+    FOREIGN KEY (email) REFERENCES User(email)
+);
+
+-- Create furniture table
+CREATE TABLE furniture (
+    Product_Id INT AUTO_INCREMENT PRIMARY KEY,
+    Product_Name VARCHAR(100),
+    Company VARCHAR(50),
+    Type VARCHAR(50),
+    email VARCHAR(255),
+    Description VARCHAR(500),
+    Purchase_Date DATE,
+    Price FLOAT,
+    Image VARCHAR(255),
+    FOREIGN KEY (email) REFERENCES User(email)
+);
+
+-- Create stationary table
+CREATE TABLE stationary (
+    Product_Id INT AUTO_INCREMENT PRIMARY KEY,
+    Product_Name VARCHAR(100),
+    email VARCHAR(255),
+    Description VARCHAR(500),
+    Purchase_Date DATE,
+    Price FLOAT,
+    Image VARCHAR(255),
+    FOREIGN KEY (email) REFERENCES User(email)
+);
+
+-- Create vehicle table
+CREATE TABLE vehicle (
+    Product_Id INT AUTO_INCREMENT PRIMARY KEY,
+    Product_Name VARCHAR(100),
+    Company VARCHAR(50),
+    Type VARCHAR(50),
+    Model VARCHAR(50),
+    email VARCHAR(255),
+    Pass_Number VARCHAR(10),
+    Description VARCHAR(500),
+    Purchase_Date DATE,
+    Price FLOAT,
+    Image VARCHAR(255),
+    FOREIGN KEY (email) REFERENCES User(email)
+);
+
+-- Create others table
+CREATE TABLE others (
+    Product_Id INT AUTO_INCREMENT PRIMARY KEY,
+    Product_Name VARCHAR(100),
+    email VARCHAR(255),
+    Description VARCHAR(500),
+    Purchase_Date DATE,
+    Price FLOAT,
+    Image VARCHAR(255),
+    FOREIGN KEY (email) REFERENCES User(email)
+);
+
+CREATE TABLE sold (
+    Product_Id INT AUTO_INCREMENT PRIMARY KEY,
+    Product_Name VARCHAR(100),
+    email VARCHAR(255),
+    Description VARCHAR(500),
+    Purchase_Date DATE,
+    Price FLOAT,
+    Image VARCHAR(255),
+    buyerID INT,
+    FOREIGN KEY (buyerID) REFERENCES User(userId),
+    FOREIGN KEY (email) REFERENCES User(email)
+);
+

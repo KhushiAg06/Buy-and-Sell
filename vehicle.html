@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell</title>
+    <link rel="stylesheet" href="Home.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif; /* Consistent font across the page */
+        background-color: #f8f9fa; /* Light background for better readability */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+      }
+
+      nav {
+        background-color: #007bff; /* Blue background for navigation */
+        padding: 10px; /* Padding for spacing */
+      }
+
+      .navbar .buyNsell {
+        color: white; /* White text color for brand name */
+        font-size: 24px; /* Larger font size */
+        font-weight: bold; /* Bold text for emphasis */
+      }
+
+      .content .items {
+        list-style-type: none; /* Remove bullet points */
+        padding: 0; /* Remove padding */
+      }
+
+      .content .items li {
+        display: inline; /* Display items in a row */
+        margin-right: 20px; /* Space between items */
+      }
+
+      .content .items li a {
+        color: white; /* White text for links */
+        text-decoration: none; /* Remove underline from links */
+      }
+
+      .content .items li a:hover {
+        text-decoration: underline; /* Underline on hover for links */
+      }
+
+      header h1 {
+        margin: 20px 0; /* Space above and below header */
+        color: #343a40; /* Dark color for header text */
+      }
+
+      form {
+        background-color: white; /* White background for form */
+        padding: 20px; /* Padding inside the form */
+        border-radius: 8px; /* Rounded corners for the form */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        max-width: 600px; /* Max width for form */
+        margin: auto; /* Center the form */
+      }
+
+      label {
+        display: inline-block; /* Align labels */
+        width: 200px; /* Fixed width for labels */
+        text-align: right; /* Align text to the right */
+        margin-bottom: 10px; /* Space below labels */
+      }
+
+      input[type="text"],
+      input[type="date"],
+      input[type="file"] {
+        width: calc(100% - 220px); /* Full width minus label width */
+        padding: 8px; /* Padding inside inputs */
+        margin-bottom: 20px; /* Space below inputs */
+        border: 1px solid #ced4da; /* Light border */
+        border-radius: 4px; /* Rounded corners for inputs */
+      }
+
+      button {
+        background-color: #007bff; /* Blue button background */
+        color: white; /* White text color */
+        padding: 10px 15px; /* Padding for button */
+        border: none; /* No border */
+        border-radius: 4px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-size: 16px; /* Font size for button */
+        transition: background-color 0.3s; /* Transition for hover effect */
+      }
+
+      button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="buyNsell">IITG Buy and Sell</div>
+      <div class="content">
+        <ul class="items">
+          <li class="home">
+            <a href="index.php"> Home </a>
+          </li>
+          <li class="sell">
+            <a class="nav-link" href="myProduct.php">My Product</a>
+          </li>
+          <li class="contactus">
+            <a class="nav-link" href="connect.html">Contact us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <center>
+      <header>
+        <h1>Product Details</h1>
+      </header>
+      <form method="post" action="vehicle.php" enctype="multipart/form-data">
+        <label for="Product_Name">Product Name:</label>
+        <input
+          type="text"
+          id="Product_Name"
+          name="Product_Name"
+          required
+          pattern="[A-Za-z]{1,}"
+          title="Must be alphabetic"
+        /><br />
+
+        <label for="Type">Type:</label>
+        <input
+          type="text"
+          id="Type"
+          name="Type"
+          required
+          pattern="[A-Za-z]{1,}"
+        /><br />
+
+        <label for="Company">Company:</label>
+        <input
+          type="text"
+          id="Company"
+          name="Company"
+          required
+          pattern="[A-Za-z]{1,}"
+          title="Must be alphabetic"
+        /><br />
+
+        <label for="Model">Model:</label>
+        <input
+          type="text"
+          id="Model"
+          name="Model"
+          required
+          pattern="[A-Za-z]{1,}"
+        /><br />
+
+        <label for="Pass_number">Pass no.:</label>
+        <input
+          type="text"
+          id="Pass_number"
+          name="Pass_number"
+          required
+          pattern="[0-9]{1,}"
+        /><br />
+
+        <label for="Description">Description:</label>
+        <input
+          type="text"
+          class="border-2px"
+          id="Description"
+          name="Description"
+          pattern="[A-Za-z.]{1,}"
+          title="Must be alphabetic"
+        /><br />
+
+        <label for="Purchase_Date">Date of Purchase:</label>
+        <input
+          type="date"
+          id="Purchase_Date"
+          name="Purchase_Date"
+          min="1900-01-01"
+        /><br />
+
+        <label for="Price">Price:</label>
+        <input type="text" id="Price" name="Price" /><br />
+
+        <label for="Image">Upload Image:</label>
+        <input type="file" id="Image" name="Image" /><br />
+
+        <button type="submit">Submit</button>
+      </form>
+    </center>
+  </body>
+</html>
